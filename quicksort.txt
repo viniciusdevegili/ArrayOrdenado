@@ -1,0 +1,35 @@
+const pivot = arr[Math.floor(arr.length / 2)];
+    const left = [];
+    const right = [];
+
+    O pivô é escolhido como o elemento no meio do array (arr), arredondado para baixo usando Math.floor para garantir que seja um índice válido.
+Em seguida, o código inicializa duas listas vazias, left e right, que serão usadas para armazenar os elementos menores que o pivô (left) 
+e os elementos maiores que o pivô (right). 
+Isso é feito como parte da etapa de particionamento do algoritmo QuickSort, onde os elementos são divididos em torno do pivô.
+
+for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < pivot) {
+            left.push(arr[i]);
+        } else if (arr[i] > pivot) {
+            right.push(arr[i]);
+        }
+    }
+
+    for (let i = 0; i < arr.length; i++) {: Este é um loop que percorre cada elemento do array arr. Ele inicializa i com 0 e continua enquanto 
+                                           i for menor que o comprimento do array arr. Em cada iteração, i é incrementado.
+if (arr[i] < pivot) {: Este bloco condicional verifica se o elemento atual (arr[i]) é menor que o pivô (pivot).
+left.push(arr[i]);: Se o elemento atual for menor que o pivô, ele é adicionado ao array left. O array left contém todos os elementos menores que o pivô.
+else if (arr[i] > pivot) {: Se o elemento atual não for menor que o pivô (ou seja, se for maior que o pivô), este bloco condicional é executado.
+right.push(arr[i]);: Se o elemento atual for maior que o pivô, ele é adicionado ao array right. O array right contém todos os elementos maiores que o pivô.
+
+return [...quickSort(left), pivot, ...quickSort(right)];: 
+
+Esta é uma expressão de retorno que utiliza a sintaxe de spread operator (...). 
+Ela retorna um novo array que é formado pela concatenação de três partes:
+
+[...quickSort(left)]: Esta parte chama recursivamente a função quickSort para ordenar o array left e espalha (spread) os elementos ordenados em um novo array.
+pivot: Aqui, o pivô (pivot) é incluído como um elemento isolado no array resultante.
+[...quickSort(right)]: Esta parte chama recursivamente a função quickSort para ordenar o array right e espalha (spread) os elementos ordenados em um novo array.
+
+
+
